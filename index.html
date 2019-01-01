@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/table.css" type="text/css" />
+<style>
+/*html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
+*/
+</style>
+<title>QC Note</title>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script>
+	window.onload=function(){
+		var otb=document.getElementById('qctb');
+		var txt=lgxajax('https://raw.githubusercontent.com/lgxnas/getqcpy/master/zhikong.txt');
+		//var txt=lgxajax('../zhikong.txt');
+		var ar=txt.match(/(ph|铜).+/gmi);
+		ar=ar.sort();
+		//var otr=document.createElement("tr");
+		//odiv.innerHTML=txt.match(/ph.+/gmi);
+		for(var i=0;i<ar.length;i++){
+			var otr=document.createElement("tr");
+			var otd=ar[i].split("|");
+			otb.appendChild(otr).innerHTML="<td>"+otd[0]+"</td><td>"+otd[1]+"</td><td>"+otd[3]+"</td><td>"+otd[4]+"</td>";	
+		}		
+	};
+</script>
+</head>
+<body>
+
+<h1>国标所质控样</h1>
+<p id='update'>This is a paragraph.</p>
+<table id="qctb">
+	<tr>
+		<th>名称</th>
+		<th>编号</th>
+		<th>浓度</th>
+		<th>有效期</th>
+	</tr>
+</table>
+</body>
+</html>
