@@ -25,8 +25,25 @@
 #qctb th:last-child
 {border-right:1px solid #98bf21;}
 
-#qctb tr.alt td 
+#qctb tr:nth-child(odd) td 
 {
   color:#000000;
   background-color:#EAF2D3;
 }
+#qctb th:nth-child(1){
+	width:15%;
+}
+#qctb th:nth-child(2){
+	width:10%;
+}
+#qctb th:nth-child(3){
+	width:60%;
+}
+/*
+tr,td{
+	heigth:1em;
+	max-heigth:1em;
+	overflow:scroll;
+	word-wrap:break-word;
+}
+*/

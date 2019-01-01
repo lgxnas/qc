@@ -2,22 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/table.css" type="text/css" />
 <style>
-/*html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
-*/
+html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
+
 </style>
 <title>QC Note</title>
 <script type="text/javascript" src="js/ajax.js"></script>
 <script>
 	window.onload=function(){
 		var otb=document.getElementById('qctb');
+		var update=document.getElementById('update'); 
 		var txt=lgxajax('https://raw.githubusercontent.com/lgxnas/getqcpy/master/zhikong.txt');
-		//var txt=lgxajax('../zhikong.txt');
+//		var txt=lgxajax('/home/lgx/mygithub/getqcpy/zhikong.txt');
+		var ard=txt.match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/g);
+		update.innerHTML="最后更新时间："+ard[ard.length-1];
 		var ar=txt.match(/(ph|铜).+/gmi);
 		ar=ar.sort();
-		//var otr=document.createElement("tr");
-		//odiv.innerHTML=txt.match(/ph.+/gmi);
 		for(var i=0;i<ar.length;i++){
 			var otr=document.createElement("tr");
 			var otd=ar[i].split("|");
@@ -27,7 +29,7 @@
 </script>
 </head>
 <body>
-
+<div id='content'>
 <h1>国标所质控样</h1>
 <p id='update'>This is a paragraph.</p>
 <table id="qctb">
@@ -38,5 +40,6 @@
 		<th>有效期</th>
 	</tr>
 </table>
+</div>
 </body>
 </html>

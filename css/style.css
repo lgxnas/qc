@@ -1,0 +1,11 @@
+html{
+	color:#0c0c50;
+	/*background-image: linear-gradient(-225deg, #    E3FDF5 0%, #FFE6FA 100%);
+*/
+}
+div#content{
+	border:0px solid;
+	max-width:1080px;
+	margin:0 auto;
+	min-width:750px;
+}
