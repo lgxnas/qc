@@ -25,10 +25,10 @@
 #qctb th:last-child
 {border-right:1px solid #98bf21;}
 
-#qctb tr:nth-child(odd) td 
+#qctb tr:nth-child(odd) 
 {
-  color:#000000;
-  background-color:#EAF2D3;
+	transition: background 0.2s ease-in-out;  
+	background-color:#EAF2D3;
 }
 #qctb th:nth-child(1){
 	width:15%;
@@ -47,3 +47,7 @@ tr,td{
 	word-wrap:break-word;
 }
 */
+tr:hover td{
+	background-color:#ccc;
+	transition: background 0.2s ease-in-out;
+}

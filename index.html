@@ -17,7 +17,7 @@ html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
 		var txt=lgxajax('https://raw.githubusercontent.com/lgxnas/getqcpy/master/zhikong.txt');
 //		var txt=lgxajax('/home/lgx/mygithub/getqcpy/zhikong.txt');
 		var ard=txt.match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/g);
-		update.innerHTML="最后更新时间："+ard[ard.length-1];
+		update.innerHTML="共有数据"+txt.match(/\n/g).length+"条,最后更新时间："+ard[ard.length-1];
 		var ar=txt.match(/(ph|铜).+/gmi);
 		ar=ar.sort();
 		for(var i=0;i<ar.length;i++){
