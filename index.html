@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -15,18 +13,26 @@ html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
 		var otb=document.getElementById('qctb');
 		var update=document.getElementById('update'); 
 		var txt=lgxajax('https://raw.githubusercontent.com/lgxnas/getqcpy/master/zhikong.txt');
-		document.getElementById('sea').onsearch=function(){
+		//document.getElementById('fo').onsubmit=function(){
+		document.getElementById('fo').onsubmit=function(event){
+//劫持form动作
+			event.preventDefault();
+			for(var ii=1;ii<otb.rows.length;ii=1){
+				otb.deleteRow(ii);			}
 			var sea=document.getElementById('sea').value;
-			var re=new RegExp('('+sea+').+',gmi);
+			var re=new RegExp('(.+)?('+sea+').+','gmi');
 			//alert(re);
 			var ar=txt.match(re);
 			//var ar=re.exec(txt);
 			ar=ar.sort();
+//			otb.removeChild(document.getElementByClassName('ad'));
 			for(var i=0;i<ar.length;i++){
 				var otr=document.createElement("tr");
+				otr.setAttribute("class",'ad');	
 				var otd=ar[i].split("|");
 				otb.appendChild(otr).innerHTML="<td>"+otd[0]+"</td><td>"+otd[1]+"</td><td>"+otd[3]+"</td><td>"+otd[4]+"</td>";	
 			}	
+		document.getElementByTagName('form').on()
 		}
 //		var txt=lgxajax('/home/lgx/mygithub/getqcpy/zhikong.txt');
 		var ard=txt.match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/g);
@@ -39,7 +45,7 @@ html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
 <div id='content'>
 <h1>国标所质控样</h1>
 <p id='update'>This is a paragraph.</p>
-<form action="">
+<form id='fo'>
     <input type="search" id="sea" autocomplete="off" name="" placeholder="格式：ph|铜|202169">
 </form>
 <table id="qctb">
