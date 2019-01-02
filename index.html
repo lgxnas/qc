@@ -15,16 +15,23 @@ html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
 		var otb=document.getElementById('qctb');
 		var update=document.getElementById('update'); 
 		var txt=lgxajax('https://raw.githubusercontent.com/lgxnas/getqcpy/master/zhikong.txt');
+		document.getElementById('sea').onsearch=function(){
+			var sea=document.getElementById('sea').value;
+			var re=new RegExp('('+sea+').+',gmi);
+			//alert(re);
+			var ar=txt.match(re);
+			//var ar=re.exec(txt);
+			ar=ar.sort();
+			for(var i=0;i<ar.length;i++){
+				var otr=document.createElement("tr");
+				var otd=ar[i].split("|");
+				otb.appendChild(otr).innerHTML="<td>"+otd[0]+"</td><td>"+otd[1]+"</td><td>"+otd[3]+"</td><td>"+otd[4]+"</td>";	
+			}	
+		}
 //		var txt=lgxajax('/home/lgx/mygithub/getqcpy/zhikong.txt');
 		var ard=txt.match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/g);
 		update.innerHTML="共有数据"+txt.match(/\n/g).length+"条,最后更新时间："+ard[ard.length-1];
-		var ar=txt.match(/(ph|铜).+/gmi);
-		ar=ar.sort();
-		for(var i=0;i<ar.length;i++){
-			var otr=document.createElement("tr");
-			var otd=ar[i].split("|");
-			otb.appendChild(otr).innerHTML="<td>"+otd[0]+"</td><td>"+otd[1]+"</td><td>"+otd[3]+"</td><td>"+otd[4]+"</td>";	
-		}		
+			
 	};
 </script>
 </head>
@@ -33,7 +40,7 @@ html {background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);}
 <h1>国标所质控样</h1>
 <p id='update'>This is a paragraph.</p>
 <form action="">
-    <input type="search" autocomplete="off" name="" placeholder="格式：ph|铜|202169">
+    <input type="search" id="sea" autocomplete="off" name="" placeholder="格式：ph|铜|202169">
 </form>
 <table id="qctb">
 	<tr>
