@@ -51,4 +51,26 @@ if (xmlhttp.readyState==4)
 return loadXMLDoc(url);
 //return txt;
 }
-
+//--------
+//match zhikong.txt
+//--------
+function lgxmatch(txt,keyword){
+	var array_txt;
+	if(keyword==''){
+		array_txt=txt.match(/.+/gm);
+		//alert(array_txt.length);
+	}else{
+		var re=new RegExp('(.+)?('+keyword+').+','gmi');
+		array_txt=txt.match(re);
+	}
+	array_txt=array_txt.sort();
+	return array_txt;
+}
+function lgxshow(array_txt,otb){//otb tr.parentNode table                        
+	for(var i=0;i<array_txt.length;i++){
+		var otr=document.createElement("tr");
+        var array_td=array_txt[i].split("|");
+        otb.appendChild(otr).innerHTML="<td>"+array_td[0]+"</td><td>"+array_td[1]+"</td><td>"+array_td[3]+"</td><td>"+array_td[4]+"</td>";  
+    }
+	return array_txt.length;
+}
