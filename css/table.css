@@ -4,7 +4,11 @@
   width:100%;
   border-collapse:collapse;
 }
-
+table tbody tr td{
+	height:1em;
+	max-height:1em;
+	line-height:1em;
+}
 #qctb td, #qctb th 
 {
   font-size:1em;
@@ -31,13 +35,17 @@
 	background-color:#EAF2D3;
 }
 #qctb th:nth-child(1){
-	width:15%;
+	width:27%;
 }
 #qctb th:nth-child(2){
-	width:10%;
+	width:15%;
 }
 #qctb th:nth-child(3){
-	width:60%;
+	max-width:10%;
+}
+#qctb th:nth-child(4){
+	width:25%;
+	min-width:25%;
 }
 /*
 tr,td{
