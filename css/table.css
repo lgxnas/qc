@@ -47,6 +47,9 @@ table tbody tr td{
 	width:25%;
 	min-width:25%;
 }
+@media (min-width:760px){
+	#qctb th:nth-child(4){width:20%;}
+}
 /*
 tr,td{
 	heigth:1em;
@@ -58,4 +61,9 @@ tr,td{
 tr:hover td{
 	background-color:#ccc;
 	transition: background 0.2s ease-in-out;
+}
+table tr td div.tdc{
+height:1.11em;
+line-height:1.11em;
+overflow-y:auto;
 }

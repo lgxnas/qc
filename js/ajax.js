@@ -70,7 +70,7 @@ function lgxshow(array_txt,otb){//otb tr.parentNode table
 	for(var i=0;i<array_txt.length;i++){
 		var otr=document.createElement("tr");
         var array_td=array_txt[i].split("|");
-        otb.appendChild(otr).innerHTML="<td>"+array_td[0]+"</td><td>"+array_td[1]+"</td><td>"+array_td[3]+"</td><td>"+array_td[4]+"</td>";  
+        otb.appendChild(otr).innerHTML="<td><div class='tdc'>"+array_td[0]+"</div></td><td>"+array_td[1]+"</td><td><div class='tdc'>"+array_td[3]+"</div></td><td><div class='tdc'>"+array_td[4]+"</div></td>";  
     }
 	return array_txt.length;
 }
