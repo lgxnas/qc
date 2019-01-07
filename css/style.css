@@ -10,6 +10,7 @@ div{
 }
 
 div#content{
+	box-sizing: border-box;
 	border:1px dashed #ccc;
 	width:100%;
 	margin:0 auto;
